@@ -61,6 +61,9 @@ app.post('/url', async (req, res, next) => {
   console.log("REQ BODY ======", req.body)
   let { slug, url } = req.body;
   try {
+    if (url.includes('ffrf.fr')) {
+      throw new Error("Stop it")
+    }
     if (!slug) {
       slug = nanoid();
     } else {
@@ -100,9 +103,17 @@ app.use((error, req, res, next) => {
   } else {
     res.status(500);
   }
-  res.json({
+  let context = {
+    newUrl: '',
     message: error.message,
-  })
+  };
+  if (error.message.startsWith("Url validation failed:")) {
+    context = {
+      newUrl: '',
+      message: "Please enter a valid URL",
+    }
+  }
+  res.render('index', context);
 })
 
 

@@ -38,8 +38,10 @@
         <% if (message != '') { %>
         <div class="output p-4">
           <h5><%=message%></h5>
+          <% if (newUrl != '') { %>
           <a href="<%=newUrl%>" id='finUrl'><%=newUrl%></a>
           <button class='btn' onclick="copyToClipboard('#finUrl')">Copy</button>
+          <% } %>
         </div>
         <% } %>
       </div>
