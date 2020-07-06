@@ -58,7 +58,7 @@ app.get('/:id', async (req, res) => {
 
 });
 app.post('/url', async (req, res, next) => {
-  console.log("REQ BODY ======", req.body)
+  // console.log("REQ BODY ======", req.body)
   let { slug, url } = req.body;
   try {
     if (url.includes('ffrf.fr')) {
@@ -68,7 +68,7 @@ app.post('/url', async (req, res, next) => {
       slug = nanoid();
     } else {
       const existing = await db.Url.findOne({ slug })
-      console.log("EXISTING ---- ", existing)
+      // console.log("EXISTING ---- ", existing)
       if (existing) {
         const context = {
           newUrl: '',
@@ -77,7 +77,7 @@ app.post('/url', async (req, res, next) => {
         res.render('index', context);
       }
     }
-    console.log(slug, url)
+    // console.log(slug, url)
     slug = slug.toLowerCase();
 
     const newUrl = {
@@ -91,7 +91,7 @@ app.post('/url', async (req, res, next) => {
     }
     res.render('index', context);
   } catch (err) {
-    console.log(err)
+    // console.log(err)
     next(err)
   }
 
