@@ -11,9 +11,25 @@
 
 <body>
   <header>
-    <h1>ffrf.fr</h1>
+    <h1><a href='/'>ffrf.fr</a></h1>
     <p>Short Urls</p>
   </header>
+  <main>
+    <form action="/url" method='POST' id="form">
+      <p>
+        <label for="url">Url</label>
+        <input type="text" name='url' id='url'>
+      </p>
+      <p>
+        <label for="slug">Slug</label>
+        <input type="slug" name='slug' id='slug'>
+      </p>
+      <input type="submit" value="Create">
+    </form>
+    <br />
+    <h5><%=message%></h5>
+    <a href="<%=newUrl%>"><%=newUrl%></a>
+  </main>
 </body>
 
 </html>

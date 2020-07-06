@@ -2,10 +2,12 @@
   margin: 0; 
   padding: 0;
   box-sizing: border-box;
+  color: #1f1f1f;
 }
 
 body{
   font-family: 'Bubbler One', sans-serif;
+  text-align: center;
 }
 
 header h1{
@@ -17,4 +19,16 @@ header p {
   font-size: 35px;
   font-weight: 400;
   text-align: center;
+}
+
+#form{
+  text-align: center;
+  margin: 0 auto;
+}
+main{
+  text-align: center;
+  color: 
+}
+a{
+  text-decoration: none;
 }
