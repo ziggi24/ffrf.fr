@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link rel="stylesheet" href="main.css">
   <title>ffrf.fr</title>
 </head>
@@ -27,9 +28,27 @@
       <input type="submit" value="Create">
     </form>
     <br />
-    <h5><%=message%></h5>
-    <a href="<%=newUrl%>"><%=newUrl%></a>
+    <% if (message != '') { %>
+    <div class="output">
+      <h5><%=message%></h5>
+      <a href="<%=newUrl%>" id='finUrl'><%=newUrl%></a>
+      <button onclick="copyToClipboard('#finUrl')">Copy</button>
+    </div>
+    <% } %>
+
+
   </main>
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).text()).select();
+      document.execCommand("copy");
+      $temp.remove();
+      $("button").html("Copied!");
+    }
+
+  </script>
 </body>
 
 </html>
