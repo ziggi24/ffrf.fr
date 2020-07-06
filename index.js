@@ -5,12 +5,12 @@ const helmet = require('helmet');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const MongoStore = require('connect-mongo')(session);
-const { customAlphabet } = require('nanoid');
 require('dotenv');
 
-const db = require('./models');
-
+const { customAlphabet } = require('nanoid');
 const nanoid = customAlphabet('1234567890abcdefghijklmnopqrstuvwxyz-', 5)
+
+const db = require('./models');
 
 const app = express();
 
@@ -50,7 +50,6 @@ app.get('/:id', async (req, res) => {
       res.redirect(url.url);
     }
     res.redirect(`/?error=${slug} not found`);
-
   } catch (err) {
     console.log(err)
     res.redirect('/?error=link not found')
