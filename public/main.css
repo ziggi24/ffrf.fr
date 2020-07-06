@@ -25,6 +25,7 @@ header p {
   text-align: center;
   margin: 0 auto;
 }
+
 main{
   text-align: center;
   color: #1f1f1f;
@@ -35,4 +36,7 @@ a{
 button {
   margin: 3px;
   padding: 2px 2px 4px 2px;
+}
+.container {
+  padding: 5px;
 }
